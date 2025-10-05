@@ -1,0 +1,201 @@
+{
+  "name": "Demo: My first AI Agent in n8n",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        384,
+        32
+      ],
+      "id": "39bdacfd-703a-4676-962a-d657a886db61",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "YQWgqtQV7bJ9A0yU",
+          "mode": "list",
+          "cachedResultName": "MydataTable22",
+          "cachedResultUrl": "/projects/gASrXnKJ3rZPsAGH/datatables/YQWgqtQV7bJ9A0yU"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "=",
+            "news": "="
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "news",
+              "displayName": "news",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        256
+      ],
+      "id": "a27d434d-84a6-49b2-824d-4c40da9e724a",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "url": "https://www.techtalkthai.com/feed/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        32
+      ],
+      "id": "c2e7a486-f2e8-489a-9a2d-40e642ccc2d0",
+      "name": "TechTalkThai"
+    },
+    {
+      "parameters": {
+        "url": "https://droidsans.com/feed/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        192
+      ],
+      "id": "ff97b108-da9d-43ba-9831-292a10b9be11",
+      "name": "Droidsans"
+    },
+    {
+      "parameters": {
+        "url": "https://www.srtet.co.th/rss/news",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        336
+      ],
+      "id": "4d727b5b-99fb-4296-bfb9-eeeb550e08fc",
+      "name": "Srtet"
+    },
+    {
+      "parameters": {
+        "url": "https://www.nso.go.th/nsoweb/main/rssfeed/get_data/A",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        480
+      ],
+      "id": "4d3309bf-5fcc-409b-8f69-4f6aebc8fe3a",
+      "name": "Nso"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        896,
+        256
+      ],
+      "id": "e152417e-7bae-48a7-bc0e-624f286d9e87",
+      "name": "Limit"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "TechTalkThai",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Droidsans",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Srtet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Nso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row": {
+      "main": [
+        []
+      ]
+    },
+    "TechTalkThai": {
+      "main": [
+        []
+      ]
+    },
+    "Droidsans": {
+      "main": [
+        []
+      ]
+    },
+    "Srtet": {
+      "main": [
+        []
+      ]
+    },
+    "Nso": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "479842b6-8dd5-4868-a7fc-993b7c8a59ac",
+  "meta": {
+    "templateId": "self-building-ai-agent",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "017f87843df02cb53f60894914ad106dd5c7e9ccf510525021b95c215e3279dc"
+  },
+  "id": "SNBxNkSwz4hVwoXa",
+  "tags": []
+}
